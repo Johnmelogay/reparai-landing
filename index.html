@@ -7,7 +7,7 @@
 <meta name="description" content="O Reparaí conecta você a prestadores de confiança em Porto Velho: conte o problema, receba ofertas e escolha pelo preço, nota e distância. O cliente não paga nada. Feito em Porto Velho, Rondônia.">
 <meta property="og:title" content="Reparaí · Quebrou? A gente acha quem resolve.">
 <meta property="og:description" content="Conectamos quem precisa de conserto a quem conserta de verdade em Porto Velho. Para o cliente é grátis. Para o prestador, só custa quando o cliente escolhe.">
-<meta property="og:image" content="img/hero-pvh.webp">
+<meta property="og:image" content="img/og.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="img/logo.svg">
 <style>
@@ -23,7 +23,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);
   font:17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;display:block;height:auto}
 a{color:var(--brand-dark)}
 h1,h2,h3{line-height:1.12;letter-spacing:-.02em;margin:0}
 h1{font-size:clamp(2.2rem,5.2vw,3.9rem)}
@@ -59,8 +59,14 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px rgba(80,50,20,.05
 .btn-sm{padding:10px 18px;font-size:.9rem}
 
 /* hero */
-.hero{padding-top:clamp(36px,5vw,64px);padding-bottom:clamp(40px,6vw,72px);position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,56px);align-items:center}
+.hero{padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(48px,7vw,88px);position:relative;overflow:hidden}
+.hero-inner{max-width:860px;margin:0 auto;text-align:center}
+.hero-inner .lead{margin-left:auto;margin-right:auto}
+.hero-inner .cta-row,.hero-inner .hero-note{justify-content:center}
+.hero-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-top:44px}
+.hero-strip div{display:flex;flex-direction:column;align-items:center;gap:6px;width:82px}
+.hero-strip img{width:46px;height:46px;object-fit:contain;opacity:.95}
+.hero-strip span{font-size:.72rem;font-weight:700;color:var(--sub);letter-spacing:.02em;text-align:center;line-height:1.2}
 .badge{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);
   border-radius:999px;padding:7px 14px 7px 10px;font-size:.82rem;font-weight:700;color:var(--sub);box-shadow:var(--shadow)}
 .dot{width:8px;height:8px;border-radius:50%;background:#2FA36B;box-shadow:0 0 0 4px rgba(47,163,107,.16)}
@@ -70,9 +76,6 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px rgba(80,50,20,.05
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
 .hero-note{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.88rem;color:var(--sub);font-weight:600}
 .hero-note span{display:inline-flex;align-items:center;gap:7px}
-.hero-art{position:relative}
-.hero-art img{filter:drop-shadow(0 24px 40px rgba(120,70,20,.16))}
-.blob{position:absolute;inset:auto -6% -8% -6%;height:52%;background:radial-gradient(ellipse at center,rgba(255,123,0,.18),transparent 70%);z-index:-1}
 
 /* cards */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
@@ -180,9 +183,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 .copy{margin-top:34px;padding-top:20px;border-top:1px solid #241E18;font-size:.8rem;color:#7C736A;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
 
 @media (max-width:900px){
-  .hero-grid,.steps,.split,.pvh-grid{grid-template-columns:1fr}
-  .hero-art{order:-1;max-width:420px;margin:0 auto}
-  .hero-art img{max-height:300px;object-fit:contain;width:auto;margin:0 auto}
+  .steps,.split,.pvh-grid{grid-template-columns:1fr}
   .grid-3,.trust,.money{grid-template-columns:1fr 1fr}
   .nav ul{display:none}
 }
@@ -212,24 +213,28 @@ footer a:hover{color:#fff;text-decoration:underline}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="badge"><span class="dot"></span> Em teste em Porto Velho</span>
-      <h1>Quebrou?<br>A gente acha <em>quem resolve</em>.</h1>
-      <p class="lead">O Reparaí conecta você a quem conserta de verdade em Porto Velho. Você conta o problema, recebe ofertas de prestadores da sua região e escolhe pelo preço, pela nota e pela distância. Para o cliente, é de graça.</p>
-      <div class="cta-row">
-        <a class="btn btn-main" href="#como-funciona">Ver como funciona</a>
-        <a class="btn btn-ghost" href="#prestadores">Sou prestador</a>
-      </div>
-      <div class="hero-note">
-        <span>Feito em Porto Velho</span>
-        <span>39 categorias de conserto</span>
-        <span>Garantia em todo serviço</span>
-      </div>
+  <div class="wrap hero-inner">
+    <span class="badge"><span class="dot"></span> Em teste em Porto Velho</span>
+    <h1>Quebrou?<br>A gente acha <em>quem resolve</em>.</h1>
+    <p class="lead">O Reparaí conecta você a quem conserta de verdade em Porto Velho. Você conta o problema, recebe ofertas de prestadores da sua região e escolhe pelo preço, pela nota e pela distância. Para o cliente, é de graça.</p>
+    <div class="cta-row">
+      <a class="btn btn-main" href="#como-funciona">Ver como funciona</a>
+      <a class="btn btn-ghost" href="#prestadores">Sou prestador</a>
     </div>
-    <div class="hero-art">
-      <div class="blob"></div>
-      <img src="img/hero-pvh.webp" alt="Ilustração de Porto Velho com prestadores de serviço" width="1100" height="733">
+    <div class="hero-note">
+      <span>Feito em Porto Velho</span>
+      <span>39 categorias de conserto</span>
+      <span>Garantia em todo serviço</span>
+    </div>
+    <div class="hero-strip" aria-hidden="true">
+      <div><img src="img/of-eletrica.webp" alt=""><span>Elétrica</span></div>
+      <div><img src="img/of-hidraulica.webp" alt=""><span>Hidráulica</span></div>
+      <div><img src="img/of-ar.webp" alt=""><span>Ar-condicionado</span></div>
+      <div><img src="img/of-eletronicos.webp" alt=""><span>Celular e PC</span></div>
+      <div><img src="img/of-veiculos.webp" alt=""><span>Veículos</span></div>
+      <div><img src="img/of-casa.webp" alt=""><span>Reforma</span></div>
+      <div><img src="img/of-ferramentas.webp" alt=""><span>Montagem</span></div>
+      <div><img src="img/of-agricola.webp" alt=""><span>Máquinas</span></div>
     </div>
   </div>
 </section>
