@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reparaí · Quebrou? A gente acha quem resolve.</title>
+<meta name="description" content="O Reparaí conecta você a prestadores de confiança em Porto Velho: conte o problema, receba ofertas e escolha pelo preço, nota e distância. O cliente não paga nada. Feito em Porto Velho, Rondônia.">
+<meta property="og:title" content="Reparaí · Quebrou? A gente acha quem resolve.">
+<meta property="og:description" content="Conectamos quem precisa de conserto a quem conserta de verdade em Porto Velho. Para o cliente é grátis. Para o prestador, só custa quando o cliente escolhe.">
+<meta property="og:image" content="img/hero-pvh.webp">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/logo.svg">
+<style>
+:root{
+  --brand:#FF7B00; --brand-dark:#C25E00; --brand-soft:#FFF1E3;
+  --ink:#1F2124; --sub:#5F646B; --line:#EDE3D6;
+  --bg:#FFFBF6; --card:#FFFFFF; --dark:#191512;
+  --radius:22px; --shadow:0 10px 30px rgba(80,50,20,.08);
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--brand-dark)}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2.2rem,5.2vw,3.9rem)}
+h2{font-size:clamp(1.7rem,3.4vw,2.6rem)}
+h3{font-size:1.12rem;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+section{padding:clamp(56px,8vw,104px) 0}
+section[id]{scroll-margin-top:84px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--brand-dark);margin-bottom:14px}
+.lead{font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--sub);max-width:62ch}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,251,246,.88);
+  backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s, box-shadow .2s}
+header.scrolled{border-color:var(--line);box-shadow:0 6px 20px rgba(80,50,20,.05)}
+.nav{display:flex;align-items:center;gap:28px;padding-top:14px;padding-bottom:14px}
+.nav img{height:30px;width:auto}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0 0 0 auto;padding:0;font-size:.95rem;font-weight:600}
+.nav ul a{color:var(--ink);text-decoration:none;opacity:.78}
+.nav ul a:hover{opacity:1;color:var(--brand-dark)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:13px 22px;border-radius:999px;font-weight:700;font-size:.98rem;text-decoration:none;
+  border:1px solid transparent;cursor:pointer;transition:transform .12s ease, box-shadow .2s}
+.btn:active{transform:translateY(1px)}
+.btn-main{background:var(--brand);color:#fff;box-shadow:0 8px 20px rgba(255,123,0,.28)}
+.btn-main:hover{box-shadow:0 10px 26px rgba(255,123,0,.38)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-sm{padding:10px 18px;font-size:.9rem}
+
+/* hero */
+.hero{padding-top:clamp(36px,5vw,64px);padding-bottom:clamp(40px,6vw,72px);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,56px);align-items:center}
+.badge{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);
+  border-radius:999px;padding:7px 14px 7px 10px;font-size:.82rem;font-weight:700;color:var(--sub);box-shadow:var(--shadow)}
+.dot{width:8px;height:8px;border-radius:50%;background:#2FA36B;box-shadow:0 0 0 4px rgba(47,163,107,.16)}
+.hero h1{margin:20px 0 18px}
+.hero h1 em{font-style:normal;color:var(--brand-dark)}
+.hero .lead{margin-bottom:28px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.hero-note{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.88rem;color:var(--sub);font-weight:600}
+.hero-note span{display:inline-flex;align-items:center;gap:7px}
+.hero-art{position:relative}
+.hero-art img{filter:drop-shadow(0 24px 40px rgba(120,70,20,.16))}
+.blob{position:absolute;inset:auto -6% -8% -6%;height:52%;background:radial-gradient(ellipse at center,rgba(255,123,0,.18),transparent 70%);z-index:-1}
+
+/* cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.card h3{margin-bottom:8px}
+.card p{color:var(--sub);font-size:.96rem}
+.num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:11px;
+  background:var(--brand-soft);color:var(--brand-dark);font-weight:800;margin-bottom:14px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,60px);align-items:center;margin-top:44px}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border-bottom:0}
+.step .num{flex:0 0 auto;margin:0}
+.step h3{margin-bottom:4px}
+.step p{color:var(--sub);font-size:.95rem}
+
+/* phone */
+.phone{width:min(320px,100%);margin:0 auto;background:#141210;border-radius:38px;padding:11px;
+  box-shadow:0 30px 60px rgba(60,35,10,.22)}
+.screen{background:#fff;border-radius:29px;overflow:hidden;font-size:.86rem}
+.sbar{display:flex;justify-content:space-between;padding:9px 16px 4px;font-size:.68rem;color:#8b8b8b;font-weight:700}
+.phead{padding:6px 16px 12px;border-bottom:1px solid #F0EDE8}
+.phead .who{display:flex;align-items:center;gap:9px}
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--brand-soft);display:grid;place-items:center;font-weight:800;color:var(--brand-dark);font-size:.75rem}
+.phead b{font-size:.9rem}
+.phead small{color:#8b8b8b;display:block;font-size:.72rem;font-weight:600}
+.chat{padding:14px;display:flex;flex-direction:column;gap:9px;background:#FCFAF7;min-height:330px}
+.b{max-width:82%;padding:9px 12px;border-radius:14px;line-height:1.4;font-size:.83rem}
+.them{background:#fff;border:1px solid #EFECE6;border-bottom-left-radius:5px}
+.me{background:var(--brand);color:#fff;align-self:flex-end;border-bottom-right-radius:5px}
+.sys{align-self:center;background:#F1EDE7;color:#6b6b6b;font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:999px}
+.offer{background:#fff;border:1px solid #EFECE6;border-radius:14px;padding:11px 12px;box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.offer b{font-size:.86rem;display:block}
+.offer .meta{display:flex;gap:10px;color:#7a7a7a;font-size:.74rem;font-weight:600;margin-top:3px}
+.offer .tag{position:absolute}
+.chatcta{padding:10px 14px 16px;background:#FCFAF7}
+.chatcta .btn{width:100%;padding:12px}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+.tick{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:13px}
+.tick li{display:flex;gap:11px;align-items:flex-start;font-size:.98rem}
+.tick svg{flex:0 0 auto;margin-top:3px}
+.muted{color:var(--sub)}
+.small{font-size:.88rem}
+
+/* dark */
+.dark{background:var(--dark);color:#F6F0E8}
+.dark h2,.dark h3{color:#fff}
+.dark .lead,.dark p{color:#C8BEB2}
+.dark .card{background:#241F1A;border-color:#332B24;box-shadow:none}
+.dark .card p{color:#C0B6AA}
+.dark .num{background:#3A2C1E;color:#FFC48A}
+
+/* money */
+.money{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.money div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px}
+.money b{display:block;font-size:1.5rem;color:#fff;letter-spacing:-.02em}
+.money span{font-size:.82rem;color:#B9AFA3;font-weight:600}
+
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+.trust .card{padding:22px}
+.trust h3{font-size:1rem;margin-bottom:6px}
+.trust p{font-size:.88rem}
+
+/* pvh */
+.pvh{background:linear-gradient(180deg,#FFF6EC,#FFFBF6)}
+.pvh-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+.stat{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.stat b{display:block;font-size:1.9rem;letter-spacing:-.02em}
+.stat span{font-size:.84rem;color:var(--sub);font-weight:600}
+
+/* categorias */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;margin-top:36px}
+.cat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 10px;text-align:center;box-shadow:var(--shadow)}
+.cat img{width:56px;height:56px;margin:0 auto 8px;object-fit:contain}
+.cat span{font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.25;display:block}
+.more{margin-top:18px;font-size:.9rem;color:var(--sub);font-weight:600}
+
+/* faq */
+.faq{max-width:780px;margin:36px auto 0}
+details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:10px;box-shadow:var(--shadow)}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;color:var(--brand);font-weight:800;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:12px;color:var(--sub);font-size:.95rem}
+
+/* cta final */
+.final{background:var(--brand);color:#fff;text-align:center;border-radius:0}
+.final h2{color:#fff}
+.final p{color:#FFE7D1;max-width:52ch;margin:14px auto 26px}
+.final .btn-ghost{background:#fff;border-color:#fff;color:var(--brand-dark)}
+.final .btn-dark{background:#2A1B0C;color:#fff}
+
+/* footer */
+footer{background:#100D0A;color:#B7ADA1;padding:52px 0 34px;font-size:.9rem}
+.fgrid{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start}
+footer img{height:26px;filter:brightness(0) invert(1);opacity:.9;margin-bottom:14px}
+footer a{color:#D9CFC2;text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+.flinks{display:flex;flex-wrap:wrap;gap:10px 22px}
+.copy{margin-top:34px;padding-top:20px;border-top:1px solid #241E18;font-size:.8rem;color:#7C736A;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
+
+@media (max-width:900px){
+  .hero-grid,.steps,.split,.pvh-grid{grid-template-columns:1fr}
+  .hero-art{order:-1;max-width:420px;margin:0 auto}
+  .hero-art img{max-height:300px;object-fit:contain;width:auto;margin:0 auto}
+  .grid-3,.trust,.money{grid-template-columns:1fr 1fr}
+  .nav ul{display:none}
+}
+@media (max-width:560px){
+  .grid-3,.trust,.money{grid-template-columns:1fr}
+  .phone{transform:scale(.96)}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" aria-label="Reparaí — início"><img src="img/logo.svg" alt="Reparaí"></a>
+    <ul>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#clientes">Para clientes</a></li>
+      <li><a href="#prestadores">Para prestadores</a></li>
+      <li><a href="#confianca">Confiança</a></li>
+      <li><a href="#porto-velho">Porto Velho</a></li>
+    </ul>
+    <a class="btn btn-main btn-sm" href="#prestadores">Sou prestador</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge"><span class="dot"></span> Em teste em Porto Velho</span>
+      <h1>Quebrou?<br>A gente acha <em>quem resolve</em>.</h1>
+      <p class="lead">O Reparaí conecta você a quem conserta de verdade em Porto Velho. Você conta o problema, recebe ofertas de prestadores da sua região e escolhe pelo preço, pela nota e pela distância. Para o cliente, é de graça.</p>
+      <div class="cta-row">
+        <a class="btn btn-main" href="#como-funciona">Ver como funciona</a>
+        <a class="btn btn-ghost" href="#prestadores">Sou prestador</a>
+      </div>
+      <div class="hero-note">
+        <span>Feito em Porto Velho</span>
+        <span>39 categorias de conserto</span>
+        <span>Garantia em todo serviço</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="blob"></div>
+      <img src="img/hero-pvh.webp" alt="Ilustração de Porto Velho com prestadores de serviço" width="1100" height="733">
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Por que o Reparaí existe</span>
+    <h2>Procurar conserto hoje é uma bagunça.</h2>
+    <p class="lead">Todo mundo já passou por isso: o chuveiro queima na sexta à noite, o ar-condicionado para de gelar no calor, a geladeira faz barulho. Aí começa a peregrinação: grupo da família, indicação de vizinho, perfil no Instagram que não responde, orçamento que nunca chega.</p>
+    <div class="grid-3">
+      <div class="card">
+        <span class="num">1</span>
+        <h3>O cliente não sabe a quem ligar</h3>
+        <p>Não sabe quem atende naquele bairro, quem cobra quanto, nem quem é confiável. Acaba escolhendo no escuro — ou desistindo.</p>
+      </div>
+      <div class="card">
+        <span class="num">2</span>
+        <h3>Quem conserta bem não é achado</h3>
+        <p>Tem gente excelente em Porto Velho que vive de indicação e de semana vazia, porque não tem vitrine, nem tempo, nem paciência para internet.</p>
+      </div>
+      <div class="card">
+        <span class="num">3</span>
+        <h3>Confiança virou sorte</h3>
+        <p>Sem nota, sem histórico e sem garantia, o cliente fica refém da sorte — e o prestador sério paga a conta da má fama dos outros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">Na prática</span>
+    <h2>Como funciona, do começo ao fim.</h2>
+    <p class="lead">Em quatro passos. Sem cadastro complicado, sem telefonema e sem passar seu endereço para estranhos.</p>
+
+    <div class="steps">
+      <div>
+        <div class="step">
+          <span class="num">1</span>
+          <div>
+            <h3>Você conta o problema — do jeito que der</h3>
+            <p>Digite, mande foto ou grave um áudio explicando. O Reparaí entende o que é e encaixa na categoria certa: elétrica, hidráulica, ar-condicionado, celular, mecânica.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="num">2</span>
+          <div>
+            <h3>Receba ofertas de quem atende</h3>
+            <p>Prestadores que fazem aquele serviço mandam preço e horário. Você vê tudo lado a lado, com nota, avaliações e distância.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="num">3</span>
+          <div>
+            <h3>Escolha e converse no chat</h3>
+            <p>Só depois que você escolhe é que seu endereço e seu nome aparecem para o prestador. A conversa fica dentro do app.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="num">4</span>
+          <div>
+            <h3>Serviço feito, com garantia</h3>
+            <p>Você acompanha, aprova o orçamento e avalia no fim. Todo serviço tem garantia — se der problema, a gente entra.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone" role="img" aria-label="Exemplo de conversa dentro do aplicativo Reparaí">
+        <div class="screen">
+          <div class="sbar"><span>9:41</span><span>Reparaí</span></div>
+          <div class="phead">
+            <div class="who">
+              <div class="avatar">RS</div>
+              <div><b>Chuveiro não esquenta</b><small>Você · Cidade Nova</small></div>
+            </div>
+          </div>
+          <div class="chat">
+            <div class="b them">Bom dia! O chuveiro liga mas a água sai fria. Já troquei o chuveiro e nada.</div>
+            <div class="sys">Reparaí identificou: elétrica</div>
+            <div class="b me">Pode ser o disjuntor ou a resistência. Tem alguém disponível hoje?</div>
+            <div class="offer">
+              <b>Carlos S. · 4,9 ★ (38)</b>
+              <div class="meta"><span>R$ 120</span><span>hoje, 14h</span><span>2,3 km</span></div>
+            </div>
+            <div class="offer">
+              <b>Eletro Rápido · 4,7 ★ (112)</b>
+              <div class="meta"><span>R$ 90</span><span>hoje, 16h</span><span>4,1 km</span></div>
+            </div>
+            <div class="sys">Você escolheu Carlos S.</div>
+          </div>
+          <div class="chatcta"><span class="btn btn-main">Confirmar conexão</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Para clientes</span>
+      <h2>Você não paga nada para usar.</h2>
+      <p class="lead">O Reparaí é gratuito para quem precisa de conserto. Você paga só o serviço, direto para o prestador, no preço que ele combinou com você.</p>
+      <ul class="tick">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2FA36B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sem taxa, sem assinatura.</b> Nada de cobrança para ver ofertas.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2FA36B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Nota e avaliações reais</b> de quem já foi atendido, não de catálogo.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2FA36B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Seu endereço só aparece</b> depois que você escolhe quem vai.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2FA36B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Garantia em todo serviço</b> e suporte do Reparaí se algo der errado.</span></li>
+      </ul>
+    </div>
+    <div>
+      <img src="img/luva-celular.webp" alt="Personagem do Reparaí segurando o celular" width="420" height="420" style="max-width:320px;margin:0 auto">
+    </div>
+  </div>
+</section>
+
+<!-- PRESTADORES -->
+<section id="prestadores" class="dark">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#FFC48A">Para quem conserta</span>
+    <h2>Receba pedidos de quem está perto. Pague só quando o cliente escolher você.</h2>
+    <p class="lead">Sem mensalidade, sem taxa de adesão e sem porcentagem do serviço. Você vê o pedido, decide se manda oferta e só paga quando o cliente escolhe você.</p>
+
+    <div class="money">
+      <div><b>R$ 5</b><span>por conexão confirmada</span></div>
+      <div><b>10</b><span>conexões grátis no piloto</span></div>
+      <div><b>0%</b><span>de comissão sobre o serviço</span></div>
+      <div><b>0</b><span>mensalidade</span></div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="num">1</span>
+        <h3>O pedido chega pronto</h3>
+        <p>O cliente descreve o problema, o Reparaí resume e diz a categoria e o bairro. Você não perde tempo perguntando o básico.</p>
+      </div>
+      <div class="card">
+        <span class="num">2</span>
+        <h3>Você decide se quer</h3>
+        <p>Manda oferta com seu preço e horário — ou deixa passar. Ninguém te obriga a aceitar nada.</p>
+      </div>
+      <div class="card">
+        <span class="num">3</span>
+        <h3>Só então aparece o contato</h3>
+        <p>Quando o cliente escolhe você, o endereço e o chat liberam. É nesse momento que a conexão é descontada.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:44px">
+      <div>
+        <h3 style="font-size:1.3rem;margin-bottom:10px">O que o Reparaí não faz</h3>
+        <ul class="tick" style="color:#C8BEB2">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7B00" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Não cobra porcentagem do seu serviço.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7B00" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Não fica com o dinheiro do serviço: o cliente paga você.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7B00" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Não coloca ninguém na sua frente por pagar mais.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7B00" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Não expõe seu telefone nem seu nome completo para quem não fechou.</span></li>
+        </ul>
+      </div>
+      <div style="text-align:center">
+        <img src="img/luva-ferramentas.webp" alt="Personagem do Reparaí com caixa de ferramentas" width="420" height="420" style="max-width:300px;margin:0 auto 18px">
+        <a class="btn btn-main" href="https://reparai.pages.dev/">Quero participar do teste</a>
+        <p class="small" style="margin-top:12px;color:#9C9287">Cadastro passa por análise antes de atender pedidos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIANÇA -->
+<section id="confianca" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">Confiança</span>
+    <h2>Conserto não pode ser aposta.</h2>
+    <p class="lead">Quatro coisas garantem que o serviço chegue do jeito certo — para os dois lados.</p>
+    <div class="trust">
+      <div class="card">
+        <h3>Identidade verificada</h3>
+        <p>O prestador passa por conferência de documento antes de receber pedido.</p>
+      </div>
+      <div class="card">
+        <h3>Avaliação de verdade</h3>
+        <p>Só quem foi atendido avalia. Nota e comentário ficam no perfil.</p>
+      </div>
+      <div class="card">
+        <h3>Garantia</h3>
+        <p>Todo serviço tem garantia. Se der problema, o Reparaí entra para resolver.</p>
+      </div>
+      <div class="card">
+        <h3>Cancelamento visível</h3>
+        <p>Quem cancela demais perde espaço. Quem cumpre combinado aparece primeiro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTO VELHO -->
+<section id="porto-velho" class="pvh">
+  <div class="wrap pvh-grid">
+    <div>
+      <span class="eyebrow">Nossa conexão</span>
+      <h2>Feito em Porto Velho, para Porto Velho.</h2>
+      <p class="lead">O Reparaí não é um aplicativo de fora testando o Brasil. Nasceu aqui, olhando para o que a nossa cidade tem de diferente: calor que quebra ar-condicionado, casa que precisa de reforma, carro que precisa de mecânico e um monte de gente boa que sabe fazer — e que hoje só é encontrada por indicação.</p>
+      <div class="stat">
+        <div><b>39</b><span>categorias de conserto</span></div>
+        <div><b>R$ 5</b><span>por conexão do prestador</span></div>
+        <div><b style="font-size:1.15rem;padding-top:.42rem">Local</b><span>suporte e time daqui</span></div>
+      </div>
+    </div>
+    <div>
+      <img src="img/luva-apontando.webp" alt="Personagem do Reparaí apontando" width="420" height="420" style="max-width:340px;margin:0 auto">
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIAS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">O que dá para resolver</span>
+    <h2>Do chuveiro ao trator.</h2>
+    <p class="lead">São 39 categorias. Estas são as que mais aparecem:</p>
+    <div class="cats">
+      <div class="cat"><img src="img/of-eletrica.webp" alt=""><span>Eletricista</span></div>
+      <div class="cat"><img src="img/of-hidraulica.webp" alt=""><span>Encanador</span></div>
+      <div class="cat"><img src="img/of-ar.webp" alt=""><span>Ar-condicionado</span></div>
+      <div class="cat"><img src="img/of-eletronicos.webp" alt=""><span>Celular e PC</span></div>
+      <div class="cat"><img src="img/of-veiculos.webp" alt=""><span>Mecânica</span></div>
+      <div class="cat"><img src="img/of-casa.webp" alt=""><span>Reforma</span></div>
+      <div class="cat"><img src="img/of-ferramentas.webp" alt=""><span>Montagem</span></div>
+      <div class="cat"><img src="img/of-agricola.webp" alt=""><span>Máquinas</span></div>
+    </div>
+    <p class="more">E ainda: chaveiro, vidraçaria, serralheria, dedetização, piscina, costura, sapateiro, relógio, bicicleta, guincho e mais.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas que todo mundo faz.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>O cliente paga alguma coisa para usar o Reparaí?</summary>
+        <p>Não. O aplicativo é gratuito para quem precisa de conserto. Você paga apenas o serviço, direto ao prestador, pelo valor que ele combinou com você.</p>
+      </details>
+      <details>
+        <summary>Como sei que o prestador é confiável?</summary>
+        <p>Ele passa por verificação de identidade, tem nota e avaliações de clientes que realmente foram atendidos, e o serviço tem garantia. Você escolhe vendo tudo isso lado a lado.</p>
+      </details>
+      <details>
+        <summary>E se o serviço der problema depois?</summary>
+        <p>Você aciona a garantia pelo app. O Reparaí entra na conversa e resolve com o prestador. O prazo da garantia fica pausado enquanto a reclamação está aberta.</p>
+      </details>
+      <details>
+        <summary>Sou prestador. Vou pagar mensalidade?</summary>
+        <p>Não. Não existe mensalidade nem taxa de adesão. Você paga R$ 5 apenas quando um cliente escolhe você e a conexão é confirmada. No piloto, você recebe 10 conexões grátis.</p>
+      </details>
+      <details>
+        <summary>Preciso aceitar todos os pedidos?</summary>
+        <p>Não. Você vê o resumo do pedido e decide se manda oferta. Se não quiser, não acontece nada: nenhum crédito é descontado.</p>
+      </details>
+      <details>
+        <summary>O Reparaí atende toda Porto Velho?</summary>
+        <p>Sim. Começamos pela cidade e vamos abrir região por região, conforme os prestadores entram. Se ainda não tiver ninguém na sua área, você entra na lista de aviso.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <h2>Chame quem resolve.</h2>
+    <p>Estamos abrindo as primeiras vagas em Porto Velho. Se você conserta, entre na lista. Se você precisa, avise a gente que a gente chama.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-dark" href="https://reparai.pages.dev/">Sou prestador</a>
+      <a class="btn btn-ghost" href="#como-funciona">Como funciona</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div style="max-width:300px">
+        <img src="img/logo.svg" alt="Reparaí">
+        <p style="margin:0">Conserto perto de você, com gente verificada e garantia. Feito em Porto Velho, Rondônia.</p>
+      </div>
+      <div class="flinks">
+        <a href="/termos.html">Termos de uso</a>
+        <a href="/privacidade.html">Privacidade</a>
+        <a href="/suporte.html">Suporte</a>
+        <a href="/excluir-conta.html">Excluir conta</a>
+        <a href="#prestadores">Sou prestador</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>Reparaí · Porto Velho, Rondônia</span>
+      <span>Em teste. Preços e condições do piloto podem mudar antes do lançamento.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const h = document.getElementById('top');
+  addEventListener('scroll', () => h.classList.toggle('scrolled', scrollY > 12), { passive: true });
+</script>
+</body>
+</html>
